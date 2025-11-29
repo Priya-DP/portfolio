@@ -1,114 +1,137 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import { ExternalLink, Github, ArrowUpRight, Sparkles, Star, Code, Globe } from 'lucide-react'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  ExternalLink,
+  Github,
+  ArrowUpRight,
+  Sparkles,
+  Star,
+  Code,
+  Globe,
+} from "lucide-react";
+import Image from "next/image";
 
 const projects = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution built with Next.js, featuring user authentication, payment processing, and admin dashboard.',
-    image: '/api/placeholder/400/250',
-    category: 'fullstack',
-    technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe'],
-    liveUrl: 'https://ecommerce-demo.com',
-    githubUrl: 'https://github.com/devipriya/ecommerce',
+    title: "E-Commerce Platform",
+    description:
+      "A full-stack e-commerce solution built with Next.js, featuring user authentication, payment processing, and admin dashboard.",
+    // image: "/api/placeholder/400/250",
+    category: "fullstack",
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Stripe"],
+    liveUrl: "https://ecommerce-demo.com",
+    githubUrl: "https://github.com/devipriya/ecommerce",
     featured: true,
   },
   {
     id: 2,
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-    image: '/api/placeholder/400/250',
-    category: 'frontend',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    liveUrl: 'https://task-app-demo.com',
-    githubUrl: 'https://github.com/devipriya/task-app',
+    title: "Task Management App",
+    description:
+      "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+    // image: "/api/placeholder/400/250",
+    category: "frontend",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    liveUrl: "https://task-app-demo.com",
+    githubUrl: "https://github.com/devipriya/task-app",
     featured: true,
   },
   {
     id: 3,
-    title: 'Weather Dashboard',
-    description: 'A beautiful weather application with location-based forecasts, interactive charts, and responsive design.',
-    image: '/api/placeholder/400/250',
-    category: 'frontend',
-    technologies: ['React', 'Chart.js', 'OpenWeather API', 'CSS3'],
-    liveUrl: 'https://weather-demo.com',
-    githubUrl: 'https://github.com/devipriya/weather-app',
+    title: "Weather Dashboard",
+    description:
+      "A beautiful weather application with location-based forecasts, interactive charts, and responsive design.",
+    // image: "/api/placeholder/400/250",
+    category: "frontend",
+    technologies: ["React", "Chart.js", "OpenWeather API", "CSS3"],
+    liveUrl: "https://weather-demo.com",
+    githubUrl: "https://github.com/devipriya/weather-app",
     featured: false,
   },
   {
     id: 4,
-    title: 'Blog CMS',
-    description: 'A content management system for blogs with markdown support, SEO optimization, and analytics dashboard.',
-    image: '/api/placeholder/400/250',
-    category: 'fullstack',
-    technologies: ['Next.js', 'MDX', 'PostgreSQL', 'Drizzle ORM'],
-    liveUrl: 'https://blog-cms-demo.com',
-    githubUrl: 'https://github.com/devipriya/blog-cms',
+    title: "TinyLink ",
+    description:
+      "A content management system for blogs with markdown support, SEO optimization, and analytics dashboard.",
+    image: "/photo/tiny-link.png",
+    category: "fullstack",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Drizzle ORM",
+    ],
+    liveUrl: "https://tinylink-sand.vercel.app",
+    githubUrl: "https://github.com/Devipriya-41/tinylink",
     featured: false,
   },
   {
     id: 5,
-    title: 'Portfolio Website',
-    description: 'A modern portfolio website built with Next.js and Framer Motion, featuring smooth animations and responsive design.',
-    image: '/api/placeholder/400/250',
-    category: 'frontend',
-    technologies: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'TypeScript'],
-    liveUrl: 'https://portfolio-demo.com',
-    githubUrl: 'https://github.com/devipriya/portfolio',
+    title: "Portfolio Website",
+    description:
+      "A modern portfolio website built with Next.js and Framer Motion, featuring smooth animations and responsive design.",
+    // image: "/api/placeholder/400/250",
+    category: "frontend",
+    technologies: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript"],
+    liveUrl: "https://portfolio-demo.com",
+    githubUrl: "https://github.com/devipriya/portfolio",
     featured: false,
   },
   {
     id: 6,
-    title: 'API Gateway',
-    description: 'A microservices API gateway with authentication, rate limiting, and request routing capabilities.',
-    image: '/api/placeholder/400/250',
-    category: 'backend',
-    technologies: ['Node.js', 'Express', 'Redis', 'JWT'],
-    liveUrl: 'https://api-gateway-demo.com',
-    githubUrl: 'https://github.com/devipriya/api-gateway',
+    title: "API Gateway",
+    description:
+      "A microservices API gateway with authentication, rate limiting, and request routing capabilities.",
+    // image: "/api/placeholder/400/250",
+    category: "backend",
+    technologies: ["Node.js", "Express", "Redis", "JWT"],
+    liveUrl: "https://api-gateway-demo.com",
+    githubUrl: "https://github.com/devipriya/api-gateway",
     featured: false,
   },
-]
+];
 
 const categories = [
-  { id: 'all', name: 'All Projects', icon: Code },
-  { id: 'frontend', name: 'Frontend', icon: Globe },
-  { id: 'backend', name: 'Backend', icon: Code },
-  { id: 'fullstack', name: 'Full Stack', icon: Star },
-]
+  { id: "all", name: "All Projects", icon: Code },
+  { id: "frontend", name: "Frontend", icon: Globe },
+  { id: "backend", name: "Backend", icon: Code },
+  { id: "fullstack", name: "Full Stack", icon: Star },
+];
 
 export default function ProjectsSection() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
-  
-  const [activeCategory, setActiveCategory] = useState('all')
-  const [filteredProjects, setFilteredProjects] = useState(projects)
+  });
+
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [filteredProjects, setFilteredProjects] = useState(projects);
 
   const handleCategoryChange = (category: string) => {
-    setActiveCategory(category)
-    if (category === 'all') {
-      setFilteredProjects(projects)
+    setActiveCategory(category);
+    if (category === "all") {
+      setFilteredProjects(projects);
     } else {
-      setFilteredProjects(projects.filter(project => project.category === category))
+      setFilteredProjects(
+        projects.filter((project) => project.category === category)
+      );
     }
-  }
+  };
 
   return (
     <section id="projects" className="section-padding relative overflow-hidden">
       {/* Enhanced Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 via-white/90 to-blue-50/80 dark:from-dark-800/90 dark:via-dark-700/95 dark:to-dark-800/90" />
       <div className="absolute inset-0 bg-dots opacity-20" />
-      
+
       {/* Floating decorative elements */}
       <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-pink-400/10 to-orange-400/10 rounded-full blur-3xl" />
-      
+
       <div className="container-custom relative z-10">
         <motion.div
           ref={ref}
@@ -120,12 +143,16 @@ export default function ProjectsSection() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <Sparkles className="w-8 h-8 text-yellow-500" />
             <h2 className="text-4xl md:text-6xl font-bold">
-              My <span className="bg-gradient-to-r from-primary-500 via-purple-600 to-pink-600 bg-clip-text text-transparent">Projects</span>
+              My{" "}
+              <span className="bg-gradient-to-r from-primary-500 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Projects
+              </span>
             </h2>
             <Sparkles className="w-8 h-8 text-yellow-500" />
           </div>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-            A showcase of my recent work, demonstrating my skills in frontend, backend, and full-stack development.
+            A showcase of my recent work, demonstrating my skills in frontend,
+            backend, and full-stack development.
           </p>
         </motion.div>
 
@@ -144,8 +171,8 @@ export default function ProjectsSection() {
               onClick={() => handleCategoryChange(category.id)}
               className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${
                 activeCategory === category.id
-                  ? 'bg-gradient-to-r from-primary-500 to-purple-600 text-white shadow-2xl shadow-primary-500/25 transform -translate-y-1'
-                  : 'glass-card dark:glass-card-dark text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 border border-white/20 dark:border-dark-600/50 backdrop-blur-sm'
+                  ? "bg-gradient-to-r from-primary-500 to-purple-600 text-white shadow-2xl shadow-primary-500/25 transform -translate-y-1"
+                  : "glass-card dark:glass-card-dark text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 border border-white/20 dark:border-dark-600/50 backdrop-blur-sm"
               }`}
             >
               <category.icon className="w-5 h-5" />
@@ -175,9 +202,20 @@ export default function ProjectsSection() {
                 {/* Enhanced Project Image */}
                 <div className="relative overflow-hidden">
                   <div className="w-full h-56 bg-gradient-to-br from-primary-100 via-purple-100 to-pink-100 dark:from-primary-900/20 dark:via-purple-900/20 dark:to-pink-900/20 flex items-center justify-center">
-                    <span className="text-6xl font-bold bg-gradient-to-r from-primary-500 to-purple-600 bg-clip-text text-transparent">{project.title.charAt(0)}</span>
+                    {project.image && project.image !== "" ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <span className="text-6xl font-bold bg-gradient-to-r from-primary-500 to-purple-600 bg-clip-text text-transparent">
+                        {project.title.charAt(0)}
+                      </span>
+                    )}
                   </div>
-                  
+
                   {/* Enhanced Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-black/70 to-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center space-x-6">
                     <motion.a
@@ -221,7 +259,7 @@ export default function ProjectsSection() {
                   <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 group-hover:text-primary-500 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed text-lg">
                     {project.description}
                   </p>
@@ -250,7 +288,7 @@ export default function ProjectsSection() {
                       Live Demo
                       <ArrowUpRight className="ml-2 w-5 h-5" />
                     </motion.a>
-                    
+
                     <motion.a
                       whileHover={{ x: -5 }}
                       href={project.githubUrl}
@@ -280,13 +318,18 @@ export default function ProjectsSection() {
               Ready to Start Your Project?
             </h3>
             <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Interested in working together? Let's discuss your project and bring your ideas to life!
+              Interested in working together? Let's discuss your project and
+              bring your ideas to life!
             </p>
             <motion.button
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
               className="button-primary text-lg px-8 py-4 shadow-2xl shadow-primary-500/25"
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() =>
+                document
+                  .querySelector("#contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               Get In Touch
             </motion.button>
@@ -294,9 +337,5 @@ export default function ProjectsSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-
-
-
-

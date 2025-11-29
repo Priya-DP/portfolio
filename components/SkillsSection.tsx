@@ -9,33 +9,33 @@ const skillCategories = [
     title: 'Frontend Development',
     icon: Palette,
     skills: [
-      { name: 'React', level: 95, color: 'from-blue-500 to-cyan-500' },
-      { name: 'Next.js', level: 90, color: 'from-gray-800 to-gray-900' },
-      { name: 'TypeScript', level: 88, color: 'from-blue-600 to-blue-700' },
-      { name: 'Tailwind CSS', level: 92, color: 'from-cyan-500 to-blue-500' },
-      { name: 'HTML/CSS', level: 95, color: 'from-orange-500 to-red-500' },
+      { name: 'React', level: 65, color: 'from-blue-500 to-cyan-500' },
+      { name: 'Next.js', level: 70, color: 'from-gray-800 to-gray-900' },
+      { name: 'TypeScript', level: 65, color: 'from-blue-600 to-blue-700' },
+      { name: 'Tailwind CSS', level: 75, color: 'from-cyan-500 to-blue-500' },
+      { name: 'HTML/CSS', level: 85, color: 'from-orange-500 to-red-500' },
     ]
   },
   {
     title: 'Backend Development',
     icon: Server,
     skills: [
-      { name: 'Node.js', level: 85, color: 'from-green-500 to-green-600' },
-      { name: 'Express.js', level: 80, color: 'from-gray-600 to-gray-700' },
-      { name: 'PostgreSQL', level: 82, color: 'from-blue-500 to-indigo-600' },
-      { name: 'Drizzle ORM', level: 78, color: 'from-purple-500 to-pink-500' },
-      { name: 'REST APIs', level: 90, color: 'from-green-400 to-green-500' },
+      { name: 'Node.js', level: 60, color: 'from-green-500 to-green-600' },
+      { name: 'Express.js', level: 55, color: 'from-gray-600 to-gray-700' },
+      { name: 'PostgreSQL', level: 60, color: 'from-blue-500 to-indigo-600' },
+      { name: 'Drizzle ORM', level: 65, color: 'from-purple-500 to-pink-500' },
+      { name: 'REST APIs', level: 80, color: 'from-green-400 to-green-500' },
     ]
   },
   {
     title: 'Tools & Others',
     icon: Code,
     skills: [
-      { name: 'Git/GitHub', level: 88, color: 'from-orange-600 to-red-600' },
-      { name: 'Docker', level: 75, color: 'from-blue-500 to-blue-600' },
-      { name: 'AWS', level: 70, color: 'from-yellow-500 to-orange-500' },
-      { name: 'Figma', level: 72, color: 'from-purple-500 to-pink-500' },
-      { name: 'Testing', level: 80, color: 'from-green-500 to-emerald-500' },
+      { name: 'Git/GitHub', level: 55, color: 'from-orange-600 to-red-600' },
+      { name: 'Payload CMS', level: 50, color: 'from-blue-500 to-blue-600' },
+      { name: 'AWS', level: 30, color: 'from-yellow-500 to-orange-500' },
+      { name: 'Figma', level: 25, color: 'from-purple-500 to-pink-500' },
+      { name: 'Testing', level: 50, color: 'from-green-500 to-emerald-500' },
     ]
   }
 ]
