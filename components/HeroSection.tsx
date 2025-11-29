@@ -83,10 +83,7 @@ export default function HeroSection() {
     const handleResize = () => {
       setCanvasSize();
     };
-
     window.addEventListener("resize", handleResize);
-
-    // Cleanup function
     return () => {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationRef.current);
@@ -202,11 +199,15 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Full Stack Developer passionate about creating innovative digital
-            solutions. Specializing in React, Next.js, and modern web
-            technologies.
+            I build modern, scalable web applications using{" "}
+            <span className="font-bold">
+              React, Next.js 15, MERN Stack,TypeScript, and Drizzle ORM
+            </span>
+            . With 2 years of experience, I specialize in creating fast,
+            user-focused interfaces and secure backend APIs. I love turning
+            complex workflows into simple and elegant digital experiences
           </motion.p>
 
           {/* Enhanced CTA Buttons with glass effect */}
