@@ -29,14 +29,14 @@ const projects = [
   },
   {
     id: 2,
-    title: "Task Management App",
+    title: "Troika Tours – Travel & Tourism Website",
     description:
-      "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    // image: "/api/placeholder/400/250",
+      "A custom travel and tourism website designed for Troika Tours, featuring personalized tour packages, destination highlights, and an integrated enquiry system using PHP mail. Built with responsive UI for seamless browsing across all devices.",
+      image: "/photo/troikatour.png",
     category: "frontend",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    liveUrl: "https://task-app-demo.com",
-    githubUrl: "https://github.com/devipriya/task-app",
+    technologies: ["HTML5", "CSS3", "JavaScript", "PHP"],
+    liveUrl: "https://www.troikatours.com",
+    // githubUrl: "https://github.com/devipriya/task-app",
     featured: true,
   },
   {
