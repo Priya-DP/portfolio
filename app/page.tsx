@@ -9,10 +9,13 @@ import ContactSection from "@/components/ContactSection";
 import Navigation from "@/components/Navigation";
 import CursorFollower from "@/components/CursorFollower";
 import ThemeToggle from "@/components/ThemeToggle";
+import Loader from "@/components/SkeletonLoader";
 
 export default function Home() {
   const [isDark, setIsDark] = useState(false);
+  const [loading, setLoading] = useState(true);
 
+  // Theme + initial load
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia(
@@ -22,10 +25,11 @@ export default function Home() {
     if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       setIsDark(true);
       document.documentElement.classList.add("dark");
-    } else {
-      setIsDark(false);
-      document.documentElement.classList.remove("dark");
     }
+
+    // Simulate page loading for animation
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
   }, []);
 
   const toggleTheme = () => {
@@ -49,7 +53,7 @@ export default function Home() {
           : "animated-gradient bg-gradient-to-br from-blue-50 via-white to-purple-50"
       }`}
     >
-      {/* Enhanced Background Elements */}
+      {/* Background */}
       <div
         className={`fixed inset-0 ${
           isDark ? "mesh-gradient-dark" : "mesh-gradient"
@@ -61,19 +65,28 @@ export default function Home() {
         }`}
       />
       <div className="fixed inset-0 bg-dots opacity-30" />
-
-      {/* Floating Shapes */}
       <div className="floating-shapes fixed inset-0 pointer-events-none" />
 
       <CursorFollower />
       <Navigation />
       <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
 
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ContactSection />
+      {/* ======================= */}
+      {/* SHOW SKELETON WHEN LOADING */}
+      {/* ======================= */}
+      {loading ? (
+        <div className="mt-20">
+          <Loader />
+        </div>
+      ) : (
+        <>
+          <HeroSection />
+          <AboutSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <ContactSection />
+        </>
+      )}
     </main>
   );
 }
