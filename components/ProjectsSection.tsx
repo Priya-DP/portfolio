@@ -32,7 +32,7 @@ const projects = [
     title: "Troika Tours – Travel & Tourism Website",
     description:
       "A custom travel and tourism website designed for Troika Tours, featuring personalized tour packages, destination highlights, and an integrated enquiry system using PHP mail. Built with responsive UI for seamless browsing across all devices.",
-      image: "/photo/troikatour.png",
+    image: "/photo/troikatour.png",
     category: "frontend",
     technologies: ["HTML5", "CSS3", "JavaScript", "PHP"],
     liveUrl: "https://www.troikatours.com",
