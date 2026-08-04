@@ -7,7 +7,7 @@ import Tilt3DCard from "@/components/3d/Tilt3DCard";
 const stats = [
   { label: "Years Experience", value: "2+" },
   { label: "Projects Delivered", value: "10+" },
-  { label: "Tech Stack Mastery", value: "Next.js & Drizzle" },
+  { label: "Tech Stack Mastery", value: "Next.js" },
   { label: "Code Quality", value: "100%" },
 ];
 
