@@ -60,7 +60,7 @@ export default function Footer3D() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
           <p>© {new Date().getFullYear()} Devipriya V. All rights reserved.</p>
           <p className="flex items-center gap-1 mt-2 sm:mt-0">
-            Designed & Built with <Heart className="w-3.5 h-3.5 text-pink-500 fill-pink-500" /> using Next.js & Three.js
+            Designed & Built with <Heart className="w-3.5 h-3.5 text-pink-500 fill-pink-500" /> Devipriya V
           </p>
         </div>
       </div>

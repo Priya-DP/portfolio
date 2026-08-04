@@ -80,26 +80,24 @@ export default function ContactSection() {
     }
   };
 
-  const handleInputBlur = (
-    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
+ const handleInputBlur = (
+  e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+) => {
+  const { name } = e.target;
+  setTouched((prev) => ({ ...prev, [name]: true }));
+  const result = contactFormSchema.safeParse(formData);
 
-    // Validate individual field on blur
-    const fieldValue = formData[name as keyof ContactFormData];
-    if (fieldValue) {
-      const fieldSchema = contactFormSchema.pick({ [name]: true });
-      const result = fieldSchema.safeParse({ [name]: fieldValue });
-
-      if (!result.success) {
-        setErrors((prev) => ({
-          ...prev,
-          [name]: result.error.issues[0].message,
-        }));
-      }
+  if (!result.success) {
+    const fieldError = result.error.issues.find(
+      (issue) => issue.path[0] === name
+    );
+    if (fieldError) {
+      setErrors((prev) => ({ ...prev, [name]: fieldError.message }));
     }
-  };
+  } else {
+    setErrors((prev) => ({ ...prev, [name]: "" }));
+  }
+};
 
   const validateForm = (): boolean => {
     const validationResult = contactFormSchema.safeParse(formData);
