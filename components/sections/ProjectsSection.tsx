@@ -2,7 +2,15 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Sparkles, Star, Code, Layers, Globe } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  Sparkles,
+  Star,
+  Code,
+  Layers,
+  Globe,
+} from "lucide-react";
 import Image from "next/image";
 import Tilt3DCard from "@/components/3d/Tilt3DCard";
 
@@ -25,22 +33,38 @@ const projects = [
       "A high-speed link shortening and management platform with custom URL aliases, analytics, and instant API routing.",
     image: "/photo/tiny-link.png",
     category: "fullstack",
-    technologies: ["Next.js 15", "TypeScript", "Tailwind CSS", "PostgreSQL", "Drizzle ORM"],
+    technologies: [
+      "Next.js 15",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Drizzle ORM",
+    ],
     liveUrl: "https://tinylink-sand.vercel.app",
     githubUrl: "https://github.com/Devipriya-41/tinylink",
     featured: true,
   },
   {
     id: 3,
-    title: "E-Commerce Enterprise Platform",
+    title: "3D Animated Portfolio",
     description:
-      "Full-stack e-commerce system featuring user authentication, product search, cart management, Stripe checkout integration, and an administrative dashboard.",
-    category: "fullstack",
-    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Stripe API"],
-    liveUrl: "https://ecommerce-demo.com",
-    githubUrl: "https://github.com/Devipriya-41",
+      "A premium developer portfolio showcasing interactive WebGL experiences, 3D animations, realistic lighting, smooth camera controls, responsive layouts, and engaging UI/UX using modern frontend technologies.",
+    category: "frontend",
+    image: "/photo/threejs-portfolio.png",
+    technologies: [
+      "Next.js",
+      "React",
+      "Three.js",
+      "R3F",
+      "Drei",
+      "Framer Motion",
+      "Tailwind CSS",
+    ],
+    liveUrl: "https://threejs-portfolio-4edo.vercel.app/",
+    githubUrl: "https://github.com/Priya-DP/Threejs-Portfolio",
     featured: true,
   },
+
   {
     id: 4,
     title: "Real-Time Weather Dashboard",
@@ -63,6 +87,17 @@ const projects = [
     githubUrl: "https://github.com/Devipriya-41",
     featured: false,
   },
+  {
+    id: 6,
+    title: "E-Commerce Enterprise Platform",
+    description:
+      "Full-stack e-commerce system featuring user authentication, product search, cart management, Stripe checkout integration, and an administrative dashboard.",
+    category: "fullstack",
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Stripe API"],
+    liveUrl: "https://ecommerce-demo.com",
+    githubUrl: "https://github.com/Devipriya-41",
+    featured: true,
+  },
 ];
 
 const categories = [
@@ -81,7 +116,10 @@ export default function ProjectsSection() {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="relative py-28 bg-[#030712] overflow-hidden">
+    <section
+      id="projects"
+      className="relative py-28 bg-[#030712] overflow-hidden"
+    >
       {/* Background Glows */}
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
@@ -106,7 +144,10 @@ export default function ProjectsSection() {
             transition={{ delay: 0.1 }}
             className="text-4xl sm:text-6xl font-extrabold tracking-tight font-outfit text-white mb-6"
           >
-            Recent <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500">Projects</span>
+            Recent{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500">
+              Projects
+            </span>
           </motion.h2>
         </div>
 
@@ -158,7 +199,9 @@ export default function ProjectsSection() {
                       ) : (
                         <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-cyan-950/40 via-purple-950/40 to-slate-950 p-6 text-center">
                           <Code className="w-12 h-12 text-cyan-400 mb-2 opacity-80 group-hover:rotate-12 transition-transform" />
-                          <span className="text-xl font-bold text-white font-outfit">{project.title}</span>
+                          <span className="text-xl font-bold text-white font-outfit">
+                            {project.title}
+                          </span>
                         </div>
                       )}
 
