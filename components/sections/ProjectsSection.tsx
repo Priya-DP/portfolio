@@ -17,6 +17,46 @@ import Tilt3DCard from "@/components/3d/Tilt3DCard";
 const projects = [
   {
     id: 1,
+    title: "Nerinas Comfort Wear – Shopify E-commerce",
+    description:
+      "A modern Shopify e-commerce store for Nerinas Comfort Wear, designed with a responsive and user-friendly interface for showcasing products, managing collections, and providing a seamless shopping and checkout experience.",
+    image: "/photo/nerinas-comfort-wear.png",
+    category: "ecommerce",
+    technologies: ["Shopify", "Liquid", "HTML5", "CSS3", "JavaScript"],
+    liveUrl: "https://www.nerinascomfortwear.com/",
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "Solar Energy – Renewable Energy Website",
+    description:
+      "A responsive solar energy website designed to showcase renewable energy solutions, solar products, and services with a clean, modern, and user-friendly interface.",
+    image: "/photo/solar-energy.png",
+    category: "frontend",
+    technologies: ["HTML5", "CSS3", "JavaScript"],
+    liveUrl: "https://www.jacytc.com",
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "Sunspot Renewable – Solar Energy Platform",
+    description:
+      "A full-stack solar energy platform built with Next.js, featuring a responsive UI, solar product and service management, user authentication, and a secure login system. The application uses Drizzle ORM with Neon PostgreSQL for database management and Tailwind CSS for a modern, responsive interface.",
+    image: "/photo/sunspot-renewable.png",
+    category: "fullstack",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Drizzle ORM",
+      "Neon PostgreSQL",
+    ],
+    liveUrl: "https://www.sunspotrenewable.com",
+    featured: true,
+  },
+
+  {
+    id: 4,
     title: "Troika Tours – Travel & Tourism",
     description:
       "A custom travel and tourism platform designed for Troika Tours with personalized tour packages, destination highlights, responsive design, and integrated PHP enquiry workflows.",
@@ -27,7 +67,7 @@ const projects = [
     featured: true,
   },
   {
-    id: 2,
+    id: 5,
     title: "TinyLink – URL & Link Management",
     description:
       "A high-speed link shortening and management platform with custom URL aliases, analytics, and instant API routing.",
@@ -45,7 +85,7 @@ const projects = [
     featured: true,
   },
   {
-    id: 3,
+    id: 6,
     title: "3D Animated Portfolio",
     description:
       "A premium developer portfolio showcasing interactive WebGL experiences, 3D animations, realistic lighting, smooth camera controls, responsive layouts, and engaging UI/UX using modern frontend technologies.",
@@ -62,40 +102,6 @@ const projects = [
     ],
     liveUrl: "https://threejs-portfolio-4edo.vercel.app/",
     githubUrl: "https://github.com/Priya-DP/Threejs-Portfolio",
-    featured: true,
-  },
-
-  {
-    id: 4,
-    title: "Real-Time Weather Dashboard",
-    description:
-      "Interactive weather application featuring location-based forecasts, weather trend charts, and responsive glassmorphism UI.",
-    category: "frontend",
-    technologies: ["React", "Chart.js", "OpenWeather API", "Tailwind CSS"],
-    liveUrl: "https://weather-demo.com",
-    githubUrl: "https://github.com/Devipriya-41",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "Microservices API Gateway",
-    description:
-      "High-throughput microservices gateway featuring JWT authentication, rate limiting, and request routing.",
-    category: "backend",
-    technologies: ["Node.js", "Express", "Redis", "JWT"],
-    liveUrl: "https://api-gateway-demo.com",
-    githubUrl: "https://github.com/Devipriya-41",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "E-Commerce Enterprise Platform",
-    description:
-      "Full-stack e-commerce system featuring user authentication, product search, cart management, Stripe checkout integration, and an administrative dashboard.",
-    category: "fullstack",
-    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Stripe API"],
-    liveUrl: "https://ecommerce-demo.com",
-    githubUrl: "https://github.com/Devipriya-41",
     featured: true,
   },
 ];
